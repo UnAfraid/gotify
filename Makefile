@@ -80,7 +80,7 @@ build-docker-amd64: require-version
 build-docker-arm-7: require-version
 	cp ${BUILD_DIR}/gotify-linux-arm-7 ./docker/gotify-app
 	cd ${DOCKER_DIR} && \
-		docker build -f Dockerfile.armv7 \
+		docker build -f Dockerfile \
 		-t gotify/server-arm7:latest \
 		-t gotify/server-arm7:${VERSION} \
 		-t gotify/server-arm7:$(shell echo $(VERSION) | cut -d '.' -f -2) \
@@ -94,7 +94,7 @@ build-docker-arm-7: require-version
 build-docker-arm64: require-version
 	cp ${BUILD_DIR}/gotify-linux-arm64 ./docker/gotify-app
 	cd ${DOCKER_DIR} && \
-		docker build -f Dockerfile.arm64 \
+		docker build -f Dockerfile \
 		-t gotify/server-arm64:latest \
 		-t gotify/server-arm64:${VERSION} \
 		-t gotify/server-arm64:$(shell echo $(VERSION) | cut -d '.' -f -2) \
@@ -108,7 +108,7 @@ build-docker-arm64: require-version
 build-docker-riscv64: require-version
 	cp ${BUILD_DIR}/gotify-linux-riscv64 ./docker/gotify-app
 	cd ${DOCKER_DIR} && \
-		docker build -f Dockerfile.riscv64 \
+		docker build -f Dockerfile \
 		-t gotify/server-riscv64:latest \
 		-t gotify/server-riscv64:${VERSION} \
 		-t gotify/server-riscv64:$(shell echo $(VERSION) | cut -d '.' -f -2) \
